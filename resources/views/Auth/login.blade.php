@@ -28,8 +28,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,9 +56,9 @@
                                         <input type="password" class="form-control" placeholder="Password" name="password" required = "true">
                                     </div>
                                     
-                                    @error('password')
-                                    <span>{{ $message }}</span>
-                                    @enderror
+                                    @if(session('error'))
+                                    <span style="color:red;font-size:medium">{{ session('error') }}</span><br><br>
+                                    @endif
                                     <button type="submit" name="submit" class="btn btn-primary">Login</button><br><br>
                                 </form><br/>
                             </div>

@@ -62,7 +62,11 @@
                                 <input class="form-control" placeholder="Address" type="text" name="address" required="true">
 
                                 <br>
-            
+                                @if($errors->any())
+            					@foreach ( $errors->all() as $err )
+                                    <span style="color:red;font-size:medium">{{ $err }}</span><br>
+                                @endforeach
+                                @endif
                     <button class="btn btn-primary" type="submit">Sign Up</button>
                         </div>
                     </form>

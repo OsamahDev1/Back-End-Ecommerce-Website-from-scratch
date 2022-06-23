@@ -12,10 +12,14 @@ class LoginController extends Controller
 
        public function login(Request $req)
        {
-        //validtaion for login
+        //validtaion for login form
         $req->validate([
             'email' => 'required|email',
             'password' => 'required'
+        ],[
+            'name.required' => 'الرجاء ادخال الاسم',
+            'email.required' => 'الرجاء ادخال البريدالالكتروني',
+            'email.email' => 'البريد الالكتروني غير صحيح',
         ]);
 		
         //login users
@@ -25,7 +29,7 @@ class LoginController extends Controller
             return redirect()->route('index');
         }
     	else{
-            return redirect()->back()->withErrors('email and password are not matched in our records')
+            return redirect()->back()->with('error','البريد الالكتروني او كلمة المرور غير صحيحة')
             ->withInput($req->all());
         }
     }
