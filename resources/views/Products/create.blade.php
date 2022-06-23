@@ -30,11 +30,11 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="product_categorie">PRODUCT CATEGORY</label>
+  <label class="col-md-4 control-label" for="product_category">PRODUCT CATEGORY</label>
   <div class="col-md-4">
-    <select id="product_categorie" name="product_categorie" class="form-control">
-        @foreach($Category as $Categorys)
-    	<option value="{{ $Categorys->name }}">{{ $Categorys->name }}</option>
+    <select id="product_categorie" name="product_category" class="form-control">
+        @foreach($categories as $category)
+    	<option value="{{ $category->id }}">{{ $category->name }}</option>
     	@endforeach
     </select>
   </div>
@@ -44,7 +44,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>  
   <div class="col-md-4">
-  <input id="available_quantity" name="available_quantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md" required="" type="file">
+  <input id="available_quantity" name="product_img" placeholder="AVAILABLE QUANTITY" class="form-control input-md" required="" type="file">
   </div>
 </div>
 

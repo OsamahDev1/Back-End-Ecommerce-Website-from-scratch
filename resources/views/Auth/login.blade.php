@@ -44,7 +44,7 @@
                             </div>
                             <div class="panel-body">
                                 <p class="text-warning"><i>Login to make a purchase</i><p>
-                                <form action="{{ route('loginpost') }}" method="POST">
+                                <form action="{{ route('login') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control" value="{{ old('email') }}"  placeholder="Email" name="email" required = "true">

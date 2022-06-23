@@ -9,43 +9,46 @@ use Auth;
 
 class RegisterController extends Controller
 {
-    public function showregister(){
-        return view('auth.register');   
-       }
+    public function showRegisterPage()
+    {
+        return view('auth.register');
+    }
 
-    public function register(Request $req){
-    
+    public function register(Request $req)
+    {
         //validation for registration form
-        $req->validate([
-			'name' => 'required|string',
-			'email' => 'required|email',
-			'password' => 'required',
-			'phone' => 'required|numeric',
-			'city' => 'required',
-			'address' => 'required',
-        ],[
-            'name.required' => 'الرجاء ادخال الاسم',
-            'email.required' => 'الرجاء ادخال البريدالالكتروني',
-            'email.email' => 'البريد الالكتروني غير صحيح',
-            'password.required' => 'الرجاء ادخل كلمة المرور',
-            'phone.required' => 'الرجاء ادخال كلمة المرور',
-            'phone.numeric' => 'كلمة المرور يجب ان تكون ارقام فقط',
-            'phone.required' => 'يجب ادخال المدينة',
-            'phone.required' => 'يجب ادخال العنوان',
-        ]);
-	
+        $req->validate(
+            [
+                'name' => 'required|string',
+                'email' => 'required|email',
+                'password' => 'required',
+                'phone' => 'required|numeric',
+                'city' => 'required',
+                'address' => 'required',
+            ],
+            [
+                'name.required' => 'الرجاء ادخال الاسم',
+                'email.required' => 'الرجاء ادخال البريدالالكتروني',
+                'email.email' => 'البريد الالكتروني غير صحيح',
+                'password.required' => 'الرجاء ادخل كلمة المرور',
+                'phone.required' => 'الرجاء ادخال كلمة المرور',
+                'phone.numeric' => 'كلمة المرور يجب ان تكون ارقام فقط',
+                'phone.required' => 'يجب ادخال المدينة',
+                'phone.required' => 'يجب ادخال العنوان',
+            ]
+        );
+
         //register users
-		$user = User::create([
-			'name' => $req->name,
+        $user = User::create([
+            'name' => $req->name,
             'email' => $req->email,
             'password' => Hash::make($req->password),
             'contact' => $req->phone,
             'city' => $req->city,
             'address' => $req->address,
         ]);
-		
-        Auth::login($user);
-        return to_route('index');
 
+        Auth::login($user);
+        return to_route('home');
     }
 }
