@@ -1,6 +1,9 @@
 @extends('layouts.navbar')
 @section('content')   
         <div class="container content">
+            <form action="{{ route('addproduct') }}" action="GET">
+            <input type="submit" value = "Add a Product" class="button-34">
+            </form>
             <!-- Jumbotron Header -->
             <div class="jumbotron home-spacer" id="products-jumbotron">
                 <h1>Welcome to our Lifestyle Store!</h1>

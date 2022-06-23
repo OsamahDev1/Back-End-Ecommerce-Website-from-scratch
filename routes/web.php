@@ -34,7 +34,11 @@ Route::get('success',[SuccessController::class,'showsuccess'])->name('success');
 
 // post
 Route::post('login',[LoginController::class,'login'])->name('loginpost');
-// Route::post('register',[RegisterController::class,'register']);
+Route::post('register',[RegisterController::class,'register']);
 Route::post('logout',[LoginController::class,'logout'])->name('logout');
+
+
+//product routes
+Route::get('addproduct',[ProductController::class,'showaddproduct'])->name('addproduct');
 
 
