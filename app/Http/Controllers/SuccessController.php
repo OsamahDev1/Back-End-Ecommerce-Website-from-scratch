@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class SuccessController extends Controller
 {
-    protected function showsuccess()
+    protected function show()
     {
         return view('success');
     }

@@ -7,7 +7,7 @@
                 <div class="banner_content">
                     <h1>We sell lifestyle.</h1>
                     <p>Flat 40% OFF on premium brands</p> 
-                    <a href="{{ url('products') }}" class="btn btn-danger
+                    <a href="{{ route('index') }}" class="btn btn-danger
                     btn-lg active">Shop Now</a>  
                 </div>
             </center>

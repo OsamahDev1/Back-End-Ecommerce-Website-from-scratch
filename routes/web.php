@@ -7,6 +7,7 @@ use App\Http\controllers\RegisterController;
 use App\Http\controllers\ProductController;
 use App\Http\controllers\CartController;
 use App\Http\controllers\SuccessController;
+use App\Http\controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('home',[HomeController::class,'showHomePage'])->name('home');
-Route::get('cart',[CartController::class,'showCartPage'])->name('cart');
-Route::get('success',[SuccessController::class,'showSuccessPage'])->name('success');
-Route::get('settings',[SettingsController::class,'showSettingsPage'])->name('settings');
+Route::get('home',[HomeController::class,'show'])->name('home');
+Route::get('cart',[CartController::class,'show'])->name('cart');
+Route::get('success',[SuccessController::class,'show'])->name('success');
+Route::get('settings',[SettingsController::class,'show'])->name('settings');
 Route::get('index',[IndexController::class,'show'])->name('index');
 
 
@@ -39,7 +40,7 @@ Route::post('logout',[LoginController::class,'logout'])->name('logout');
 
 
 //product routes
-Route::get('products/create',[ProductController::class,'create'])->name('create.products');
-Route::post('products/store',[ProductController::class,'store'])->name('store.products');
+Route::get('products/create',[ProductController::class,'create'])->name('products.create');
+Route::post('products/store',[ProductController::class,'store'])->name('products.store');
 
 

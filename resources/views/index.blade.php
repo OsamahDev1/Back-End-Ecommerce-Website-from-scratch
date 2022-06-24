@@ -1,7 +1,7 @@
 @extends('layouts.navbar')
 @section('content')   
         <div class="container content">
-            <form action="{{ route('addproduct') }}" action="GET">
+            <form action="{{ route('products.create') }}" action="GET">
             <input type="submit" value = "Add a Product" class="button-34">
             </form>
             <!-- Jumbotron Header -->

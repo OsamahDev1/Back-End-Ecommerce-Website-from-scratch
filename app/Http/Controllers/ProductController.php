@@ -8,17 +8,17 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    protected function showProducts()
+    protected function show()
     {
         return view('Products.show');
     }
-    public function showProductAddPage()
+    public function create()
     {
         $categories = Category::all();
         return view('Products.create', compact('categories'));
     }
 
-    public function AddProduct(Request $req)
+    public function store(Request $req)
     {
         //validation for registration form
         $req->validate(

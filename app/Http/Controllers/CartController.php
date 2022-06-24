@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    protected function showCartPage()
+    protected function show()
     {
         return view('cart');
     }
