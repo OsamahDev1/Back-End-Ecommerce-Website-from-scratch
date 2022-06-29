@@ -9,12 +9,12 @@ use Auth;
 
 class RegisterController extends Controller
 {
-    public function showRegisterPage()
+    public function create()
     {
         return view('auth.register');
     }
 
-    public function register(Request $req)
+    public function store(Request $req)
     {
         //validation for registration form
         $req->validate(
@@ -46,6 +46,7 @@ class RegisterController extends Controller
             'contact' => $req->phone,
             'city' => $req->city,
             'address' => $req->address,
+            'created_at' => time(),
         ]);
 
         Auth::login($user);

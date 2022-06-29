@@ -10,6 +10,7 @@
     <!--Latest compiled and minified JavaScript--> 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link href="./css/index.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
@@ -27,8 +28,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
-                        <li><a href=""><span class="glyphicon glyphicon-user"></span> Settings </a></li>
-
+                        <li><a href="{{ route('settings') }}"><span class="glyphicon glyphicon-user"></span> Settings </a></li>
                         <li><a onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <span class="glyphicon glyphicon-log-in" ></span> Logout </a></li>
                     </ul>

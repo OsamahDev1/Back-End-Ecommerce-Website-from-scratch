@@ -8,6 +8,7 @@ use App\Http\controllers\ProductController;
 use App\Http\controllers\CartController;
 use App\Http\controllers\SuccessController;
 use App\Http\controllers\IndexController;
+use App\Http\controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,16 +28,16 @@ Route::get('/', function () {
 Route::get('home',[HomeController::class,'show'])->name('home');
 Route::get('cart',[CartController::class,'show'])->name('cart');
 Route::get('success',[SuccessController::class,'show'])->name('success');
-Route::get('settings',[SettingsController::class,'show'])->name('settings');
+Route::get('settings',[SettingController::class,'show'])->name('settings');
 Route::get('index',[IndexController::class,'show'])->name('index');
 
 
 // Auth routes
-Route::get('register',[RegisterController::class,'showRegisterPage'])->name('register');
-Route::post('register',[RegisterController::class,'register']);
-Route::get('login',[LoginController::class,'showLoginPage'])->name('login');
-Route::post('login',[LoginController::class,'login']);
-Route::post('logout',[LoginController::class,'logout'])->name('logout');
+Route::get('register',[RegisterController::class,'create'])->name('register');
+Route::post('register',[RegisterController::class,'store']);
+Route::get('login',[LoginController::class,'create'])->name('login');
+Route::post('login',[LoginController::class,'store']);
+Route::post('logout',[LoginController::class,'destroy'])->name('logout');
 
 
 //product routes

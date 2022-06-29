@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Filesystem\Filesystem;  
 
 class ProductController extends Controller
 {
     protected function show()
     {
         return view('Products.show');
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
     public function create()
     {
@@ -36,12 +41,29 @@ class ProductController extends Controller
             ]
         );
 
-        //add product
+        //store img
+        if($req->hasFile('product_img'))        
+        {
+        $file_extension = $req->product_img->getClientOriginalExtension();
+        $file_name = time().'.'.$file_extension;
+        $path = 'img';
+        $req->product_img->move($path,$file_name);
+        }
+        else 
+        {
+            $file_name = null;
+        }
+
+
+        //store product
+        
         Product::create([
-            'name' => $req->name,
+            'name' => $req->product_name,
             'price' => $req->price,
+            'img' => $file_name,
             'category_id' => $req->product_category,
-            // 'img' => $req->img,
+            'created_at' => time(),
         ]);
+        return to_route('index');
     }
 }

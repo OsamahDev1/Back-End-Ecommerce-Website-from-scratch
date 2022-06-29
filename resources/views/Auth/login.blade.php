@@ -24,7 +24,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="#">Lifestyle Store</a>
+                    <a class="navbar-brand" href="{{ url('home') }}">Lifestyle Store</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -62,7 +62,7 @@
                                     <button type="submit" name="submit" class="btn btn-primary">Login</button><br><br>
                                 </form><br/>
                             </div>
-                            <div class="panel-footer"><p>Don't have an account? <a href="signup.html">Register</a></p></div>
+                            <div class="panel-footer"><p>Don't have an account? <a href="{{ route('register') }}">Register</a></p></div>
                         </div>
                     </div>
                 </div>

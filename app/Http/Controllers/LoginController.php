@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use Auth;
 class LoginController extends Controller
 {
-    public function showLoginPage()
+    public function create()
     {
         return view('auth.login');
     }
 
-    public function login(Request $req)
+    public function store(Request $req)
     {
         //validtaion for login form
         $req->validate(
@@ -43,9 +43,9 @@ class LoginController extends Controller
                 ->withInput($req->all());
         }
     }
-    public function logout()
+    public function destroy()
     {
         Auth::logout();
-        return to_route('Home');
+        return to_route('home');
     }
 }
